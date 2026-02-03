@@ -7,60 +7,63 @@
     <meta property="og:title" content="You Have a Message">
     <meta property="og:description" content="Click to see something special">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            margin: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
-        }
-        
-        .content-wrapper {
-            max-width: 1200px;
-            width: 100%;
+            padding: 10px;
         }
         
         .photo-container {
-            margin-bottom: 30px;
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 15px;
             justify-content: center;
+            margin-bottom: 15px;
         }
         
         .photo-container img {
-            max-width: 250px;
-            width: 100%;
+            max-width: 180px;
+            max-height: 180px;
+            width: auto;
             height: auto;
             border-radius: 15px;
-            border: 5px solid white;
+            border: 4px solid white;
             box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            object-fit: cover;
         }
         
         h1 {
             color: white;
-            font-size: 42px;
-            margin: 20px 0 40px 0;
+            font-size: 36px;
+            margin: 15px 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .button-container {
             position: relative;
-            height: 150px;
+            height: 120px;
             width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 500px;
         }
         
         #yesBtn {
-            font-size: 32px;
-            padding: 20px 60px;
+            font-size: 28px;
+            padding: 18px 50px;
             background-color: #ff69b4;
             color: white;
             border: none;
@@ -88,45 +91,56 @@
         }
         
         .success-photo {
-            max-width: 400px;
+            max-width: 350px;
             width: 90%;
             height: auto;
             border-radius: 20px;
             border: 6px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            margin: 30px auto;
+            margin: 20px auto;
+        }
+        
+        @media (max-height: 700px) {
+            .photo-container img {
+                max-width: 120px;
+                max-height: 120px;
+            }
+            h1 {
+                font-size: 28px;
+                margin: 10px 0;
+            }
+            #yesBtn {
+                font-size: 22px;
+                padding: 12px 35px;
+            }
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 28px;
-            }
             .photo-container img {
-                max-width: 150px;
+                max-width: 140px;
+                max-height: 140px;
+            }
+            h1 {
+                font-size: 26px;
             }
             #yesBtn {
                 font-size: 24px;
                 padding: 15px 40px;
             }
-            .button-container {
-                height: 120px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="content-wrapper">
-        <div class="photo-container">
-            <img src="IMG_6592.jpeg" alt="Beautiful flowers">
-            <img src="IMG_1202.jpeg" alt="Winter memories">
-        </div>
-        
-        <h1>💕 Would you be my Valentine? 💕</h1>
-        
-        <div class="button-container">
-            <button id="yesBtn" onclick="sayYes()">Yes!</button>
-            <button id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">No</button>
-        </div>
+    <div class="photo-container">
+        <img src="IMG_6592.jpeg" alt="Beautiful flowers">
+        <img src="IMG_1202.jpeg" alt="Winter memories">
+    </div>
+    
+    <h1>💕 Would you be my Valentine? 💕</h1>
+    
+    <div class="button-container">
+        <button id="yesBtn" onclick="sayYes()">Yes!</button>
+        <button id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">No</button>
     </div>
 
     <script>
@@ -147,9 +161,9 @@
         function sayYes() {
             document.body.innerHTML = `
                 <div style="color: white; text-align: center; padding: 20px;">
-                    <h1 style="font-size: 64px; margin-bottom: 20px;">🎉 Yay! 🎉</h1>
+                    <h1 style="font-size: 54px; margin-bottom: 20px;">🎉 Yay! 🎉</h1>
                     <img src="love.jpeg" class="success-photo" alt="Love">
-                    <p style="font-size: 32px; margin-top: 30px;">I knew you'd say yes! 💖</p>
+                    <p style="font-size: 28px; margin-top: 20px;">I knew you'd say yes! 💖</p>
                 </div>
             `;
         }
