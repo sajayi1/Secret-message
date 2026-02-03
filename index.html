@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>Open Me</title>
+    <meta property="og:title" content="You Have a Message">
+    <meta property="og:description" content="Click to see something special">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,11 +63,11 @@
     </style>
 </head>
 <body>
-    <h1>💕Elizabeth Saintil, Would you be my Valentine? 💕</h1>
+    <h1>💕 Elizabeth Saintil, Would you be my Valentine? 💕</h1>
     
     <div class="button-container">
         <button id="yesBtn" onclick="sayYes()">Yes!</button>
-        <button id="noBtn" onmouseover="moveButton()">No</button>
+        <button id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">No</button>
     </div>
 
     <script>
@@ -87,7 +89,7 @@
             document.body.innerHTML = `
                 <div style="color: white; text-align: center;">
                     <h1 style="font-size: 64px;">🎉 Yay! 🎉</h1>
-                    <p style="font-size: 32px;">Nice where the dress I got you❤️! </p>
+                    <p style="font-size: 32px;">I Love You!💜</p>
                 </div>
             `;
         }
